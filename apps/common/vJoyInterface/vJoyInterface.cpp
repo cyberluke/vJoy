@@ -2067,7 +2067,7 @@ namespace vJoyNS {
         if (Type != PT_GAINREP)
             return ERROR_INVALID_DATA;
 
-        *Gain = (FFB_CTRL)Packet->data[1];
+        *Gain = Packet->data[1];
         return ERROR_SUCCESS;
 
     }
