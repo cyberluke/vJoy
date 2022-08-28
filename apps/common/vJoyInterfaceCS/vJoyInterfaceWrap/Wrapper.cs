@@ -704,7 +704,6 @@ namespace vJoyInterfaceWrap
             if (res != 0)
                 return res;
 
-            DataSize -= 8;
             Data = new byte[DataSize];
             Marshal.Copy(buf, Data, 0, (Int32)DataSize);
             return res;
