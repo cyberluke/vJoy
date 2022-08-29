@@ -520,15 +520,23 @@ namespace vJoyInterfaceWrap
         [DllImport("vJoyInterface.dll", EntryPoint = "Ffb_h_DeviceID", CallingConvention = CallingConvention.Cdecl)]
         private static extern UInt32 _Ffb_h_DeviceID(IntPtr Packet, ref UInt32 DeviceID);
 
+        [DllImport("vJoyInterface.dll", EntryPoint = "Ffb_dp_DeviceID", CallingConvention = CallingConvention.Cdecl)]
+        private static extern UInt32 _Ffb_dp_DeviceID(IntPtr data, ref UInt32 DeviceID);
+
         [DllImport("vJoyInterface.dll", EntryPoint = "Ffb_h_Type", CallingConvention = CallingConvention.Cdecl)]
         private static extern UInt32 _Ffb_h_Type(IntPtr Packet, ref FFBPType Type);
+
+        [DllImport("vJoyInterface.dll", EntryPoint = "Ffb_dp_Type", CallingConvention = CallingConvention.Cdecl)]
+        private static extern UInt32 _Ffb_dp_Type(IntPtr data, ref FFBPType Type, int cmd);
 
         [DllImport("vJoyInterface.dll", EntryPoint = "Ffb_h_Packet", CallingConvention = CallingConvention.Cdecl)]
         private static extern UInt32 _Ffb_h_Packet(IntPtr Packet, ref UInt32 Type, ref UInt32 DataSize, ref IntPtr Data);
 
-
         [DllImport("vJoyInterface.dll", EntryPoint = "Ffb_h_EBI", CallingConvention = CallingConvention.Cdecl)]
         private static extern UInt32 _Ffb_h_EBI(IntPtr Packet, ref UInt32 Index);
+
+        [DllImport("vJoyInterface.dll", EntryPoint = "Ffb_dp_EBI", CallingConvention = CallingConvention.Cdecl)]
+        private static extern UInt32 _Ffb_dp_EBI(IntPtr data, ref UInt32 Index, int cmd);
 
 #pragma warning disable 618
         [DllImport("vJoyInterface.dll", EntryPoint = "Ffb_h_Eff_Const", CallingConvention = CallingConvention.Cdecl)]
@@ -538,39 +546,78 @@ namespace vJoyInterfaceWrap
         [DllImport("vJoyInterface.dll", EntryPoint = "Ffb_h_Eff_Report", CallingConvention = CallingConvention.Cdecl)]
         private static extern UInt32 _Ffb_h_Eff_Report(IntPtr Packet, ref FFB_EFF_REPORT Effect);
 
+        [DllImport("vJoyInterface.dll", EntryPoint = "Ffb_dp_Eff_Report", CallingConvention = CallingConvention.Cdecl)]
+        private static extern UInt32 _Ffb_dp_Eff_Report(IntPtr data, ref FFB_EFF_REPORT Effect, int cmd);
+
         [DllImport("vJoyInterface.dll", EntryPoint = "Ffb_h_DevCtrl", CallingConvention = CallingConvention.Cdecl)]
         private static extern UInt32 _Ffb_h_DevCtrl(IntPtr Packet, ref FFB_CTRL Control);
+
+        [DllImport("vJoyInterface.dll", EntryPoint = "Ffb_dp_DevCtrl", CallingConvention = CallingConvention.Cdecl)]
+        private static extern UInt32 _Ffb_dp_DevCtrl(IntPtr data, ref FFB_CTRL Control, int cmd);
 
         [DllImport("vJoyInterface.dll", EntryPoint = "Ffb_h_EffOp", CallingConvention = CallingConvention.Cdecl)]
         private static extern UInt32 _Ffb_h_EffOp(IntPtr Packet, ref FFB_EFF_OP Operation);
 
+        [DllImport("vJoyInterface.dll", EntryPoint = "Ffb_dp_EffOp", CallingConvention = CallingConvention.Cdecl)]
+        private static extern UInt32 _Ffb_dp_EffOp(IntPtr data, ref FFB_EFF_OP Operation, int cmd);
+
         [DllImport("vJoyInterface.dll", EntryPoint = "Ffb_h_DevGain", CallingConvention = CallingConvention.Cdecl)]
         private static extern UInt32 _Ffb_h_DevGain(IntPtr Packet, ref Byte Gain);
+
+        [DllImport("vJoyInterface.dll", EntryPoint = "Ffb_dp_DevGain", CallingConvention = CallingConvention.Cdecl)]
+        private static extern UInt32 _Ffb_dp_DevGain(IntPtr data, ref Byte Gain, int cmd);
 
         [DllImport("vJoyInterface.dll", EntryPoint = "Ffb_h_Eff_Cond", CallingConvention = CallingConvention.Cdecl)]
         private static extern UInt32 _Ffb_h_Eff_Cond(IntPtr Packet, ref FFB_EFF_COND Condition);
 
+        [DllImport("vJoyInterface.dll", EntryPoint = "Ffb_dp_Eff_Cond", CallingConvention = CallingConvention.Cdecl)]
+        private static extern UInt32 _Ffb_dp_Eff_Cond(IntPtr data, ref FFB_EFF_COND Condition, int cmd);
+
         [DllImport("vJoyInterface.dll", EntryPoint = "Ffb_h_Eff_Envlp", CallingConvention = CallingConvention.Cdecl)]
         private static extern UInt32 _Ffb_h_Eff_Envlp(IntPtr Packet, ref FFB_EFF_ENVLP Envelope);
+
+        [DllImport("vJoyInterface.dll", EntryPoint = "Ffb_dp_Eff_Envlp", CallingConvention = CallingConvention.Cdecl)]
+        private static extern UInt32 _Ffb_dp_Eff_Envlp(IntPtr Packet, ref FFB_EFF_ENVLP Envelope, int cmd);
+
+        [DllImport("vJoyInterface.dll", EntryPoint = "Ffb_dp_Eff_Envlp", CallingConvention = CallingConvention.Cdecl)]
+        private static extern UInt32 _Ffb_data_Eff_Envlp(IntPtr data, ref FFB_EFF_ENVLP Envelope, int cmd);
 
         [DllImport("vJoyInterface.dll", EntryPoint = "Ffb_h_Eff_Period", CallingConvention = CallingConvention.Cdecl)]
         private static extern UInt32 _Ffb_h_Eff_Period(IntPtr Packet, ref FFB_EFF_PERIOD Effect);
 
+        [DllImport("vJoyInterface.dll", EntryPoint = "Ffb_dp_Eff_Period", CallingConvention = CallingConvention.Cdecl)]
+        private static extern UInt32 _Ffb_dp_Eff_Period(IntPtr daata, ref FFB_EFF_PERIOD Effect, int cmd);
+
         [DllImport("vJoyInterface.dll", EntryPoint = "Ffb_h_EffNew", CallingConvention = CallingConvention.Cdecl)]
         private static extern UInt32 _Ffb_h_EffNew(IntPtr Packet, ref FFBEType Effect);
+
+        [DllImport("vJoyInterface.dll", EntryPoint = "Ffb_dp_EffNew", CallingConvention = CallingConvention.Cdecl)]
+        private static extern UInt32 _Ffb_dp_EffNew(IntPtr data, ref FFBEType Effect, int cmd);
 
         [DllImport("vJoyInterface.dll", EntryPoint = "Ffb_h_Eff_Ramp", CallingConvention = CallingConvention.Cdecl)]
         private static extern UInt32 _Ffb_h_Eff_Ramp(IntPtr Packet, ref FFB_EFF_RAMP RampEffect);
 
+        [DllImport("vJoyInterface.dll", EntryPoint = "Ffb_dp_Eff_Ramp", CallingConvention = CallingConvention.Cdecl)]
+        private static extern UInt32 _Ffb_dp_Eff_Ramp(IntPtr data, ref FFB_EFF_RAMP RampEffect, int cmd);
+
         [DllImport("vJoyInterface.dll", EntryPoint = "Ffb_h_Eff_Constant", CallingConvention = CallingConvention.Cdecl)]
         private static extern UInt32 _Ffb_h_Eff_Constant(IntPtr Packet, ref FFB_EFF_CONSTANT ConstantEffect);
+
+        [DllImport("vJoyInterface.dll", EntryPoint = "Ffb_dp_Eff_Constant", CallingConvention = CallingConvention.Cdecl)]
+        private static extern UInt32 _Ffb_dp_Eff_Constant(IntPtr data, ref FFB_EFF_CONSTANT ConstantEffect, int cmd);
 
         // New API added with 2.2.0
         [DllImport("vJoyInterface.dll", EntryPoint = "Ffb_h_EffectBlockIndex", CallingConvention = CallingConvention.Cdecl)]
         private static extern UInt32 _Ffb_h_EffectBlockIndex(IntPtr packet, ref UInt32 effectId);
 
+        [DllImport("vJoyInterface.dll", EntryPoint = "Ffb_dp_EffectBlockIndex", CallingConvention = CallingConvention.Cdecl)]
+        private static extern UInt32 _Ffb_dp_EffectBlockIndex(IntPtr data, ref UInt32 effectId, int cmd);
+
         [DllImport("vJoyInterface.dll", EntryPoint = "Ffb_h_CreateNewEffect", CallingConvention = CallingConvention.Cdecl)]
         private static extern UInt32 _Ffb_h_CreateNewEffect(IntPtr packet, ref FFBEType effect, ref UInt32 newEffectId);
+
+        [DllImport("vJoyInterface.dll", EntryPoint = "Ffb_dp_CreateNewEffect", CallingConvention = CallingConvention.Cdecl)]
+        private static extern UInt32 _Ffb_dp_CreateNewEffect(IntPtr data, ref FFBEType effect, ref UInt32 newEffectId, int cmd);
 
         [DllImport("vJoyInterface.dll", EntryPoint = "FfbWritePID", CallingConvention = CallingConvention.Cdecl)]
         private static extern UInt32 _Ffb_h_WritePID(UInt32 rID, ref FFB_DEVICE_PID PIDData);
@@ -696,6 +743,7 @@ namespace vJoyInterfaceWrap
         public bool IsDeviceFfb(UInt32 rID) { return _IsDeviceFfb(rID); }
         public bool IsDeviceFfbEffect(UInt32 rID, UInt32 Effect) { return _IsDeviceFfbEffect(rID, Effect); }
         public UInt32 Ffb_h_DeviceID(IntPtr Packet, ref UInt32 DeviceID) { return _Ffb_h_DeviceID(Packet, ref DeviceID); }
+        public UInt32 Ffb_dp_DeviceID(IntPtr Packet, ref UInt32 DeviceID) { return _Ffb_dp_DeviceID(Packet, ref DeviceID); }
         public UInt32 Ffb_h_Type(IntPtr Packet, ref FFBPType Type) { return _Ffb_h_Type(Packet, ref Type); }
         public UInt32 Ffb_h_Packet(IntPtr Packet, ref UInt32 Type, ref UInt32 DataSize, ref Byte[] Data)
         {
@@ -709,20 +757,33 @@ namespace vJoyInterfaceWrap
             return res;
         }
         public UInt32 Ffb_h_EBI(IntPtr Packet, ref UInt32 Index) { return _Ffb_h_EBI(Packet, ref Index); }
+        public UInt32 Ffb_dp_EBI(IntPtr Packet, ref UInt32 Index, int cmd) { return _Ffb_dp_EBI(Packet, ref Index, cmd); }
         [Obsolete("use Ffb_h_Eff_Report instead")]
         public UInt32 Ffb_h_Eff_Const(IntPtr Packet, ref FFB_EFF_CONST Effect) { return _Ffb_h_Eff_Const(Packet, ref Effect); }
         public UInt32 Ffb_h_Eff_Report(IntPtr Packet, ref FFB_EFF_REPORT Effect) { return _Ffb_h_Eff_Report(Packet, ref Effect); }
+        public UInt32 Ffb_dp_Eff_Report(IntPtr Packet, ref FFB_EFF_REPORT Effect, int cmd) { return _Ffb_dp_Eff_Report(Packet, ref Effect, cmd); }
         public UInt32 Ffb_h_DevCtrl(IntPtr Packet, ref FFB_CTRL Control) { return _Ffb_h_DevCtrl(Packet, ref Control); }
+        public UInt32 Ffb_dp_DevCtrl(IntPtr Packet, ref FFB_CTRL Control, int cmd) { return _Ffb_dp_DevCtrl(Packet, ref Control, cmd); }
         public UInt32 Ffb_h_EffOp(IntPtr Packet, ref FFB_EFF_OP Operation) { return _Ffb_h_EffOp(Packet, ref Operation); }
+        public UInt32 Ffb_dp_EffOp(IntPtr Packet, ref FFB_EFF_OP Operation, int cmd) { return _Ffb_dp_EffOp(Packet, ref Operation, cmd); }
         public UInt32 Ffb_h_DevGain(IntPtr Packet, ref Byte Gain) { return _Ffb_h_DevGain(Packet, ref Gain); }
+        public UInt32 Ffb_dp_DevGain(IntPtr Packet, ref Byte Gain, int cmd) { return _Ffb_dp_DevGain(Packet, ref Gain, cmd); }
         public UInt32 Ffb_h_Eff_Cond(IntPtr Packet, ref FFB_EFF_COND Condition) { return _Ffb_h_Eff_Cond(Packet, ref Condition); }
+        public UInt32 Ffb_dp_Eff_Cond(IntPtr Packet, ref FFB_EFF_COND Condition, int cmd) { return _Ffb_dp_Eff_Cond(Packet, ref Condition, cmd); }
         public UInt32 Ffb_h_Eff_Envlp(IntPtr Packet, ref FFB_EFF_ENVLP Envelope) { return _Ffb_h_Eff_Envlp(Packet, ref Envelope); }
+        public UInt32 Ffb_dp_Eff_Envlp(IntPtr Packet, ref FFB_EFF_ENVLP Envelope, int cmd) { return _Ffb_dp_Eff_Envlp(Packet, ref Envelope, cmd); }
         public UInt32 Ffb_h_Eff_Period(IntPtr Packet, ref FFB_EFF_PERIOD Effect) { return _Ffb_h_Eff_Period(Packet, ref Effect); }
+        public UInt32 Ffb_dp_Eff_Period(IntPtr Packet, ref FFB_EFF_PERIOD Effect, int cmd) { return _Ffb_dp_Eff_Period(Packet, ref Effect, cmd); }
         public UInt32 Ffb_h_EffNew(IntPtr Packet, ref FFBEType Effect) { return _Ffb_h_EffNew(Packet, ref Effect); }
+        public UInt32 Ffb_dp_EffNew(IntPtr Packet, ref FFBEType Effect, int cmd) { return _Ffb_dp_EffNew(Packet, ref Effect, cmd); }
         public UInt32 Ffb_h_Eff_Ramp(IntPtr Packet, ref FFB_EFF_RAMP RampEffect) { return _Ffb_h_Eff_Ramp(Packet, ref RampEffect); }
+        public UInt32 Ffb_dp_Eff_Ramp(IntPtr Packet, ref FFB_EFF_RAMP RampEffect, int cmd) { return _Ffb_dp_Eff_Ramp(Packet, ref RampEffect, cmd); }
         public UInt32 Ffb_h_Eff_Constant(IntPtr Packet, ref FFB_EFF_CONSTANT ConstantEffect) { return _Ffb_h_Eff_Constant(Packet, ref ConstantEffect); }
+        public UInt32 Ffb_dp_Eff_Constant(IntPtr Packet, ref FFB_EFF_CONSTANT ConstantEffect, int cmd) { return _Ffb_dp_Eff_Constant(Packet, ref ConstantEffect, cmd); }
         public UInt32 Ffb_h_EffectBlockIndex(IntPtr Packet, ref UInt32 effectId) { return _Ffb_h_EffectBlockIndex(Packet, ref effectId); }
+        public UInt32 Ffb_dp_EffectBlockIndex(IntPtr Packet, ref UInt32 effectId, int cmd) { return _Ffb_dp_EffectBlockIndex(Packet, ref effectId, cmd); }
         public UInt32 Ffb_h_CreateNewEffect(IntPtr Packet, ref FFBEType effectType, ref UInt32 newEffectId) { return _Ffb_h_CreateNewEffect(Packet, ref effectType, ref newEffectId); }
+        public UInt32 Ffb_dp_CreateNewEffect(IntPtr Packet, ref FFBEType effectType, ref UInt32 newEffectId, int cmd) { return _Ffb_dp_CreateNewEffect(Packet, ref effectType, ref newEffectId, cmd); }
         public UInt32 FfbWritePID(UInt32 rID, ref FFB_DEVICE_PID PID) { return _Ffb_h_WritePID(rID, ref PID); }
         public UInt32 FfbReadPID(UInt32 rID, ref FFB_DEVICE_PID PID) { return _Ffb_h_ReadPID(rID, ref PID); }
         public UInt32 FfbUpdateEffectState(UInt32 rID, UInt32 effectId, UInt32 effectState) { return _FfbUpdateEffectState(rID, effectId, effectState); }
