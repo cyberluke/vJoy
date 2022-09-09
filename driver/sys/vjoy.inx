@@ -13,8 +13,9 @@ Class=HIDClass
 ClassGuid={745a17a0-74d3-11d0-b6fe-00a0c90f57da}
 Provider=%VENDOR%
 ;LayoutFile=layout.inf
-DriverVer=01/10/2007,1.0.0.0
+DriverVer=09/03/2022,1.0.0.1
 CatalogFile = vJoy.cat
+PnpLockdown = 1
 
 
 ;   
@@ -231,9 +232,9 @@ KmdfLibraryVersion = $KMDFVERSION$
 
 [Strings] 
 ;  *******Localizable Strings******* 
-VENDOR         = "Shaul Eizikovich" 
-vjoy           = "vJoy Device"
-DISK_NAME      = "vJoy Device Install Disk"
+VENDOR         = "Shaul Eizikovich (CyberLuke Retro Edition)" 
+vjoy           = "vJoy Device (Retro Edition)"
+DISK_NAME      = "vJoy Device Install Disk (Retro Edition)"
 hidkmdf.SVCDESC= "Filter Driver Service for HID-KMDF Interface layer"
 
 ;  *******Non Localizable Strings******* 

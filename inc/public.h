@@ -128,8 +128,8 @@ DEFINE_GUID(GUID_DEVINTERFACE_VJOY, 0x781EF630, 0x72B2, 0x11d2, 0xB8, 0x52, 0x00
 
 // Device Strings
 //
-#define VENDOR_STR_ID		L"Shaul Eizikovich"
-#define PRODUCT_STR_ID		L"vJoy - Virtual Joystick"
+#define VENDOR_STR_ID		L"CyberLuke"
+#define PRODUCT_STR_ID		L"vJoy - Virtual Joystick (retro edition)"
 #define	SERIALNUMBER_STR	MAKEWIDE(STRINGIFY(VER_X_)) L"." MAKEWIDE(STRINGIFY(VER_H_)) L"." MAKEWIDE(STRINGIFY(VER_M_)) L"."  MAKEWIDE(STRINGIFY(VER_L_))
 
 // Function codes;

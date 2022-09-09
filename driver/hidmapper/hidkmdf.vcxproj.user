@@ -23,4 +23,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <TestCertificate>CN="WDKTestCert Benjamin,132277919481947922" | 0E33DBA13D3AF4CA5BA140EF6C35C50652292AAB</TestCertificate>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <TestCertificate>CN="WDKTestCert Lukas,133066917443778899" | 4D3B1D654EDA0A9B1D2D1DF285FC9A4332B0EF82</TestCertificate>
+  </PropertyGroup>
 </Project>

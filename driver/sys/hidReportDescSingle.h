@@ -170,7 +170,7 @@
             0x09, HID_USAGE_DMPR,    //    Usage ET Damper
             0x09, HID_USAGE_INRT,    //    Usage ET Inertia
             0x09, HID_USAGE_FRIC,    //    Usage ET Friction
-            //0x09, HID_USAGE_CUSTM,   //    Usage ET Custom Force Data
+            0x09, HID_USAGE_CUSTM,   //    Usage ET Custom Force Data
             0x09, HID_USAGE_RESERVD, //    Usage ET RESERVED
             0x25,0x0C,    //    Logical Maximum Ch (12d)
             0x15,0x01,    //    Logical Minimum 1
