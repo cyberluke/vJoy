@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug_CPP|Win32">
       <Configuration>Debug_CPP</Configuration>
@@ -34,8 +34,8 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
-  <PropertyGroup Label="PropertySheets">
-    <PlatformToolset>WindowsKernelModeDriver10.0</PlatformToolset>
+  <PropertyGroup Label="PropertySheets">    
+    <PlatformToolset>WindowsKernelModeDriver8.1</PlatformToolset>
     <ConfigurationType>Driver</ConfigurationType>
     <DriverType>KMDF</DriverType>
     <TARGETNAME>hidkmdf</TARGETNAME>
@@ -53,47 +53,50 @@
     <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
   </PropertyGroup>
   <PropertyGroup Label="Globals">
+    <KernelBufferOverflowLib>$(DDK_LIB_PATH)\BufferOverflowK.lib</KernelBufferOverflowLib>
     <ProjectGuid>{7A0BD5DC-5ACA-4AB9-B395-C16E078C11E9}</ProjectGuid>
     <RootNamespace>$(MSBuildProjectName)</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
+    <TargetVersion>Windows7</TargetVersion>
+    <_NT_TARGET_VERSION>0x0601</_NT_TARGET_VERSION>
+    <_NT_TARGET_VERSION_WIN8>0x0602</_NT_TARGET_VERSION_WIN8>
   </PropertyGroup>
   <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <TargetVersion>Windows10</TargetVersion>
+    <TargetVersion>Windows7</TargetVersion>
     <UseDebugLibraries>True</UseDebugLibraries>
     <DriverTargetPlatform>Desktop</DriverTargetPlatform>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_CPP|Win32'" Label="Configuration">
-    <TargetVersion>Windows10</TargetVersion>
+    <TargetVersion>Windows7</TargetVersion>
     <UseDebugLibraries>True</UseDebugLibraries>
     <DriverTargetPlatform>Desktop</DriverTargetPlatform>
   </PropertyGroup>
   <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <TargetVersion>Windows10</TargetVersion>
+    <TargetVersion>Windows7</TargetVersion>
     <UseDebugLibraries>False</UseDebugLibraries>
     <DriverTargetPlatform>Desktop</DriverTargetPlatform>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_CPP|Win32'" Label="Configuration">
-    <TargetVersion>Windows10</TargetVersion>
+    <TargetVersion>Windows7</TargetVersion>
     <UseDebugLibraries>False</UseDebugLibraries>
     <DriverTargetPlatform>Desktop</DriverTargetPlatform>
   </PropertyGroup>
   <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <TargetVersion>Windows10</TargetVersion>
+    <TargetVersion>Windows7</TargetVersion>
     <UseDebugLibraries>True</UseDebugLibraries>
     <DriverTargetPlatform>Desktop</DriverTargetPlatform>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_CPP|x64'" Label="Configuration">
-    <TargetVersion>Windows10</TargetVersion>
+    <TargetVersion>Windows7</TargetVersion>
     <UseDebugLibraries>True</UseDebugLibraries>
     <DriverTargetPlatform>Desktop</DriverTargetPlatform>
   </PropertyGroup>
   <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <TargetVersion>Windows10</TargetVersion>
+    <TargetVersion>Windows7</TargetVersion>
     <UseDebugLibraries>False</UseDebugLibraries>
     <DriverTargetPlatform>Desktop</DriverTargetPlatform>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_CPP|x64'" Label="Configuration">
-    <TargetVersion>Windows10</TargetVersion>
+    <TargetVersion>Windows7</TargetVersion>
     <UseDebugLibraries>False</UseDebugLibraries>
     <DriverTargetPlatform>Desktop</DriverTargetPlatform>
   </PropertyGroup>
@@ -128,41 +131,41 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <TimeStampServer>http://timestamp.verisign.com/scripts/timstamp.dll</TimeStampServer>
-    <IncludePath>$(KM_IncludePath);$(KMDF_INC_PATH)$(KMDF_VER_PATH);$(SolutionDir)Inc;$(IncludePath)</IncludePath>
+    <IncludePath>$(KM_IncludePath);$(KMDF_INC_PATH)\$(KMDF_VER_PATH);$(SolutionDir)Inc;$(IncludePath)</IncludePath>
     <ExecutablePath>$(ExecutablePath);$(WDKContentRoot)bin\x86;$(WDKContentRoot)tools\tracing\x86;$(LOCALAPPDATA)\Atlassian\SourceTree\git_local\bin</ExecutablePath>
     <Inf2CatUseLocalTime>true</Inf2CatUseLocalTime>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_CPP|Win32'">
     <TimeStampServer>http://timestamp.verisign.com/scripts/timstamp.dll</TimeStampServer>
-    <IncludePath>$(KM_IncludePath);$(KMDF_INC_PATH)$(KMDF_VER_PATH);$(SolutionDir)Inc;$(IncludePath)</IncludePath>
+    <IncludePath>$(KM_IncludePath);$(KMDF_INC_PATH)\$(KMDF_VER_PATH);$(SolutionDir)Inc;$(IncludePath)</IncludePath>
     <ExecutablePath>$(ExecutablePath);$(WDKContentRoot)bin\x86;$(WDKContentRoot)tools\tracing\x86;$(LOCALAPPDATA)\Atlassian\SourceTree\git_local\bin</ExecutablePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <TimeStampServer>http://timestamp.verisign.com/scripts/timstamp.dll</TimeStampServer>
-    <IncludePath>$(KM_IncludePath);$(KMDF_INC_PATH)$(KMDF_VER_PATH);$(SolutionDir)Inc;$(IncludePath)</IncludePath>
+    <IncludePath>$(KM_IncludePath);$(KMDF_INC_PATH)\$(KMDF_VER_PATH);$(SolutionDir)Inc;$(IncludePath)</IncludePath>
     <ExecutablePath>$(ExecutablePath);$(WDKContentRoot)bin\x86;$(WDKContentRoot)tools\tracing\x64;$(LOCALAPPDATA)\Atlassian\SourceTree\git_local\bin</ExecutablePath>
     <Inf2CatUseLocalTime>true</Inf2CatUseLocalTime>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_CPP|x64'">
     <TimeStampServer>http://timestamp.verisign.com/scripts/timstamp.dll</TimeStampServer>
-    <IncludePath>$(KM_IncludePath);$(KMDF_INC_PATH)$(KMDF_VER_PATH);$(SolutionDir)Inc;$(IncludePath)</IncludePath>
+    <IncludePath>$(KM_IncludePath);$(KMDF_INC_PATH)\$(KMDF_VER_PATH);$(SolutionDir)Inc;$(IncludePath)</IncludePath>
     <ExecutablePath>$(ExecutablePath);$(WDKContentRoot)bin\x86;$(WDKContentRoot)tools\tracing\x64;$(LOCALAPPDATA)\Atlassian\SourceTree\git_local\bin</ExecutablePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>$(KM_IncludePath);$(KMDF_INC_PATH)$(KMDF_VER_PATH);$(SolutionDir)Inc;$(IncludePath)</IncludePath>
+    <IncludePath>$(KM_IncludePath);$(KMDF_INC_PATH)\$(KMDF_VER_PATH);$(SolutionDir)Inc;$(IncludePath)</IncludePath>
     <ExecutablePath>$(ExecutablePath);$(WDKContentRoot)bin\x86;$(WDKContentRoot)tools\tracing\x86;$(LOCALAPPDATA)\Atlassian\SourceTree\git_local\bin</ExecutablePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_CPP|Win32'">
-    <IncludePath>$(KM_IncludePath);$(KMDF_INC_PATH)$(KMDF_VER_PATH);$(SolutionDir)Inc;$(IncludePath)</IncludePath>
+    <IncludePath>$(KM_IncludePath);$(KMDF_INC_PATH)\$(KMDF_VER_PATH);$(SolutionDir)Inc;$(IncludePath)</IncludePath>
     <ExecutablePath>$(ExecutablePath);$(WDKContentRoot)bin\x86;$(WDKContentRoot)tools\tracing\x86;$(LOCALAPPDATA)\Atlassian\SourceTree\git_local\bin</ExecutablePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(KM_IncludePath);$(KMDF_INC_PATH)$(KMDF_VER_PATH);$(SolutionDir)Inc;$(IncludePath)</IncludePath>
+    <IncludePath>$(KM_IncludePath);$(KMDF_INC_PATH)\$(KMDF_VER_PATH);$(SolutionDir)Inc;$(IncludePath)</IncludePath>
     <ExecutablePath>$(ExecutablePath);$(WDKContentRoot)bin\x86;$(WDKContentRoot)tools\tracing\x64;$(LOCALAPPDATA)\Atlassian\SourceTree\git_local\bin</ExecutablePath>
     <EnableInf2cat>false</EnableInf2cat>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_CPP|x64'">
-    <IncludePath>$(KM_IncludePath);$(KMDF_INC_PATH)$(KMDF_VER_PATH);$(SolutionDir)Inc;$(IncludePath)</IncludePath>
+    <IncludePath>$(KM_IncludePath);$(KMDF_INC_PATH)\$(KMDF_VER_PATH);$(SolutionDir)Inc;$(IncludePath)</IncludePath>
     <ExecutablePath>$(ExecutablePath);$(WDKContentRoot)bin\x86;$(WDKContentRoot)tools\tracing\x64;$(LOCALAPPDATA)\Atlassian\SourceTree\git_local\bin</ExecutablePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">

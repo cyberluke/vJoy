@@ -67,7 +67,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <KernelBufferOverflowLib>$(DDK_LIB_PATH)\BufferOverflowK.lib</KernelBufferOverflowLib>
     <ProjectGuid>{B7F8EA5A-FD07-4922-ADD5-F547E84C9700}</ProjectGuid>
     <TemplateGuid>{1bc93793-694f-48fe-9372-81e2b05556fd}</TemplateGuid>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
@@ -77,10 +76,10 @@
     <RootNamespace>vJoy</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <_NT_TARGET_VERSION>0x601</_NT_TARGET_VERSION>
-    <_NT_TARGET_VERSION_WIN8>0x602</_NT_TARGET_VERSION_WIN8>
-    <TargetVersion>Windows7</TargetVersion>
+    <TargetVersion>Windows8</TargetVersion>
+    <_NT_TARGET_VERSION_WIN8>0x0602</_NT_TARGET_VERSION_WIN8>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>WindowsKernelModeDriver8.1</PlatformToolset>
     <DriverType>KMDF</DriverType>
@@ -90,9 +89,8 @@
     <ALLOW_DATE_TIME>1</ALLOW_DATE_TIME>
     <ConfigurationType>Driver</ConfigurationType>
   </PropertyGroup>
-  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_CPP|Win32'" Label="Configuration">
-    <TargetVersion>Windows8</TargetVersion>
+    <TargetVersion>Windows8.1</TargetVersion>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>WindowsKernelModeDriver8.1</PlatformToolset>
     <ConfigurationType>Driver</ConfigurationType>
@@ -476,11 +474,6 @@
     </Link>
     <PreBuildEvent />
     <PostBuildEvent />
-    <Inf />
-    <DriverSign />
-    <Inf>
-      <SpecifyDriverVerDirectiveDate>true</SpecifyDriverVerDirectiveDate>
-    </Inf>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_CPP|Win32'">
     <ClCompile>

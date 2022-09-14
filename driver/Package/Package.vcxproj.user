@@ -22,7 +22,8 @@
     </ProductionCertificate>
     <CrossCertificateFile>
     </CrossCertificateFile>
-    <TestCertificate>CN="WDKTestCert Lukas,133066917443778899" | 4D3B1D654EDA0A9B1D2D1DF285FC9A4332B0EF82</TestCertificate>
+    <TestCertificate>
+    </TestCertificate>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_CPP|Win32'">
     <SignMode>TestSign</SignMode>

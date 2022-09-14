@@ -53,7 +53,7 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{DB7872FF-B0E0-46F6-A070-F059BBBAC659}</ProjectGuid>
     <RootNamespace>$(MSBuildProjectName)</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <TargetVersion>Windows10</TargetVersion>

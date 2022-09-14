@@ -75,7 +75,6 @@
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <KernelBufferOverflowLib>$(DDK_LIB_PATH)\BufferOverflowK.lib</KernelBufferOverflowLib>
     <ProjectGuid>{FB41EA7E-6536-4297-B9FD-1ECB3407B92E}</ProjectGuid>
     <TemplateGuid>{4605da2c-74a5-4865-98e1-152ef136825f}</TemplateGuid>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
@@ -83,150 +82,148 @@
     <Configuration>Debug</Configuration>
     <Platform Condition="'$(Platform)' == ''">Win32</Platform>
     <RootNamespace>Package</RootNamespace>
-    <TargetVersion>Windows7</TargetVersion>
-    <_NT_TARGET_VERSION>0x0601</_NT_TARGET_VERSION>
-    <_NT_TARGET_VERSION_WIN8>0x0602</_NT_TARGET_VERSION_WIN8>
+    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <TargetVersion>Windows7</TargetVersion>
+    <TargetVersion>Windows10</TargetVersion>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>WindowsKernelModeDriver8.1</PlatformToolset>
+    <PlatformToolset>WindowsKernelModeDriver10.0</PlatformToolset>
     <ConfigurationType>Utility</ConfigurationType>
     <DriverType>Package</DriverType>
     <DisableFastUpToDateCheck>true</DisableFastUpToDateCheck>
     <DriverTargetPlatform>Desktop</DriverTargetPlatform>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_CPP|Win32'" Label="Configuration">
-    <TargetVersion>Windows7</TargetVersion>
+    <TargetVersion>Windows10</TargetVersion>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>WindowsKernelModeDriver8.1</PlatformToolset>
+    <PlatformToolset>WindowsKernelModeDriver10.0</PlatformToolset>
     <ConfigurationType>Utility</ConfigurationType>
     <DriverType>Package</DriverType>
     <DisableFastUpToDateCheck>true</DisableFastUpToDateCheck>
     <DriverTargetPlatform>Desktop</DriverTargetPlatform>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <TargetVersion>Windows7</TargetVersion>
+    <TargetVersion>Windows10</TargetVersion>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>WindowsKernelModeDriver8.1</PlatformToolset>
+    <PlatformToolset>WindowsKernelModeDriver10.0</PlatformToolset>
     <ConfigurationType>Utility</ConfigurationType>
     <DriverType>Package</DriverType>
     <DisableFastUpToDateCheck>true</DisableFastUpToDateCheck>
     <DriverTargetPlatform>Desktop</DriverTargetPlatform>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_CPP|Win32'" Label="Configuration">
-    <TargetVersion>Windows7</TargetVersion>
+    <TargetVersion>Windows10</TargetVersion>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>WindowsKernelModeDriver8.1</PlatformToolset>
+    <PlatformToolset>WindowsKernelModeDriver10.0</PlatformToolset>
     <ConfigurationType>Utility</ConfigurationType>
     <DriverType>Package</DriverType>
     <DisableFastUpToDateCheck>true</DisableFastUpToDateCheck>
     <DriverTargetPlatform>Desktop</DriverTargetPlatform>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <TargetVersion>Windows7</TargetVersion>
+    <TargetVersion>Windows10</TargetVersion>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>WindowsKernelModeDriver8.1</PlatformToolset>
+    <PlatformToolset>WindowsKernelModeDriver10.0</PlatformToolset>
     <ConfigurationType>Utility</ConfigurationType>
     <DriverType>Package</DriverType>
     <DisableFastUpToDateCheck>true</DisableFastUpToDateCheck>
     <DriverTargetPlatform>Desktop</DriverTargetPlatform>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_CPP|x64'" Label="Configuration">
-    <TargetVersion>Windows7</TargetVersion>
+    <TargetVersion>Windows10</TargetVersion>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>WindowsKernelModeDriver8.1</PlatformToolset>
+    <PlatformToolset>WindowsKernelModeDriver10.0</PlatformToolset>
     <ConfigurationType>Utility</ConfigurationType>
     <DriverType>Package</DriverType>
     <DisableFastUpToDateCheck>true</DisableFastUpToDateCheck>
     <DriverTargetPlatform>Desktop</DriverTargetPlatform>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <TargetVersion>Windows7</TargetVersion>
+    <TargetVersion>Windows10</TargetVersion>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>WindowsKernelModeDriver8.1</PlatformToolset>
+    <PlatformToolset>WindowsKernelModeDriver10.0</PlatformToolset>
     <ConfigurationType>Utility</ConfigurationType>
     <DriverType>Package</DriverType>
     <DisableFastUpToDateCheck>true</DisableFastUpToDateCheck>
     <DriverTargetPlatform>Desktop</DriverTargetPlatform>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_CPP|x64'" Label="Configuration">
-    <TargetVersion>Windows7</TargetVersion>
+    <TargetVersion>Windows10</TargetVersion>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>WindowsKernelModeDriver8.1</PlatformToolset>
+    <PlatformToolset>WindowsKernelModeDriver10.0</PlatformToolset>
     <ConfigurationType>Utility</ConfigurationType>
     <DriverType>Package</DriverType>
     <DisableFastUpToDateCheck>true</DisableFastUpToDateCheck>
     <DriverTargetPlatform>Desktop</DriverTargetPlatform>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'" Label="Configuration">
-    <TargetVersion>Windows7</TargetVersion>
+    <TargetVersion>Windows10</TargetVersion>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>WindowsKernelModeDriver8.1</PlatformToolset>
+    <PlatformToolset>WindowsKernelModeDriver10.0</PlatformToolset>
     <ConfigurationType>Utility</ConfigurationType>
     <DriverType>Package</DriverType>
     <DisableFastUpToDateCheck>true</DisableFastUpToDateCheck>
     <DriverTargetPlatform>Desktop</DriverTargetPlatform>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_CPP|ARM'" Label="Configuration">
-    <TargetVersion>Windows7</TargetVersion>
+    <TargetVersion>Windows10</TargetVersion>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>WindowsKernelModeDriver8.1</PlatformToolset>
+    <PlatformToolset>WindowsKernelModeDriver10.0</PlatformToolset>
     <ConfigurationType>Utility</ConfigurationType>
     <DriverType>Package</DriverType>
     <DisableFastUpToDateCheck>true</DisableFastUpToDateCheck>
     <DriverTargetPlatform>Desktop</DriverTargetPlatform>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'" Label="Configuration">
-    <TargetVersion>Windows7</TargetVersion>
+    <TargetVersion>Windows10</TargetVersion>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>WindowsKernelModeDriver8.1</PlatformToolset>
+    <PlatformToolset>WindowsKernelModeDriver10.0</PlatformToolset>
     <ConfigurationType>Utility</ConfigurationType>
     <DriverType>Package</DriverType>
     <DisableFastUpToDateCheck>true</DisableFastUpToDateCheck>
     <DriverTargetPlatform>Desktop</DriverTargetPlatform>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_CPP|ARM'" Label="Configuration">
-    <TargetVersion>Windows7</TargetVersion>
+    <TargetVersion>Windows10</TargetVersion>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>WindowsKernelModeDriver8.1</PlatformToolset>
+    <PlatformToolset>WindowsKernelModeDriver10.0</PlatformToolset>
     <ConfigurationType>Utility</ConfigurationType>
     <DriverType>Package</DriverType>
     <DisableFastUpToDateCheck>true</DisableFastUpToDateCheck>
     <DriverTargetPlatform>Desktop</DriverTargetPlatform>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'" Label="Configuration">
-    <TargetVersion>Windows7</TargetVersion>
+    <TargetVersion>Windows10</TargetVersion>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>WindowsKernelModeDriver8.1</PlatformToolset>
+    <PlatformToolset>WindowsKernelModeDriver10.0</PlatformToolset>
     <ConfigurationType>Utility</ConfigurationType>
     <DriverType>Package</DriverType>
     <DisableFastUpToDateCheck>true</DisableFastUpToDateCheck>
     <DriverTargetPlatform>Desktop</DriverTargetPlatform>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_CPP|ARM64'" Label="Configuration">
-    <TargetVersion>Windows7</TargetVersion>
+    <TargetVersion>Windows10</TargetVersion>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>WindowsKernelModeDriver8.1</PlatformToolset>
+    <PlatformToolset>WindowsKernelModeDriver10.0</PlatformToolset>
     <ConfigurationType>Utility</ConfigurationType>
     <DriverType>Package</DriverType>
     <DisableFastUpToDateCheck>true</DisableFastUpToDateCheck>
     <DriverTargetPlatform>Desktop</DriverTargetPlatform>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'" Label="Configuration">
-    <TargetVersion>Windows7</TargetVersion>
+    <TargetVersion>Windows10</TargetVersion>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>WindowsKernelModeDriver8.1</PlatformToolset>
+    <PlatformToolset>WindowsKernelModeDriver10.0</PlatformToolset>
     <ConfigurationType>Utility</ConfigurationType>
     <DriverType>Package</DriverType>
     <DisableFastUpToDateCheck>true</DisableFastUpToDateCheck>
     <DriverTargetPlatform>Desktop</DriverTargetPlatform>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_CPP|ARM64'" Label="Configuration">
-    <TargetVersion>Windows7</TargetVersion>
+    <TargetVersion>Windows10</TargetVersion>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>WindowsKernelModeDriver8.1</PlatformToolset>
+    <PlatformToolset>WindowsKernelModeDriver10.0</PlatformToolset>
     <ConfigurationType>Utility</ConfigurationType>
     <DriverType>Package</DriverType>
     <DisableFastUpToDateCheck>true</DisableFastUpToDateCheck>
@@ -503,7 +500,6 @@
       <Command>DEL $(ProjectDir)gen-versioninfo.h</Command>
       <Message>Deleting Version file</Message>
     </PostBuildEvent>
-    <DriverSign />
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_CPP|Win32'">
     <PreBuildEvent />

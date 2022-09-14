@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug_CPP|Win32">
       <Configuration>Debug_CPP</Configuration>
@@ -34,66 +34,70 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
-  <PropertyGroup Label="PropertySheets">
-    <PlatformToolset>v140</PlatformToolset>
-    <ConfigurationType>Application</ConfigurationType>
-    <DriverType>None</DriverType>
-    <TARGETNAME>FfbMon</TARGETNAME>
+  <PropertyGroup Label="PropertySheets">    
+    <PlatformToolset>WindowsKernelModeDriver8.1</PlatformToolset>
+    <ConfigurationType>Driver</ConfigurationType>
+    <DriverType>KMDF</DriverType>
+    <TARGETNAME>hidkmdf</TARGETNAME>
     <Configuration Condition="'$(Configuration)' == ''">Debug</Configuration>
     <Platform Condition="'$(Platform)' == ''">Win32</Platform>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Label="PropertySheets">
+    <!--
     <ConversionToolVersion>1.0</ConversionToolVersion>
     <BUILD_ALT_DIR>$(Configuration.Replace(' ',''))</BUILD_ALT_DIR>
+    -->
     <IntDir Condition="'$(Platform)'!='Win32'">$(Platform)\$(Configuration)\</IntDir>
     <IntDir Condition="'$(Platform)'=='Win32'">$(Platform)\$(Configuration)\</IntDir>
     <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
   </PropertyGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{F47958E4-9FF0-4E14-910A-1BA0A0F6D863}</ProjectGuid>
+    <KernelBufferOverflowLib>$(DDK_LIB_PATH)\BufferOverflowK.lib</KernelBufferOverflowLib>
+    <ProjectGuid>{7A0BD5DC-5ACA-4AB9-B395-C16E078C11E9}</ProjectGuid>
     <RootNamespace>$(MSBuildProjectName)</RootNamespace>
-    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <TargetVersion>Windows7</TargetVersion>
+    <_NT_TARGET_VERSION_WIN8>0x0602</_NT_TARGET_VERSION_WIN8>
   </PropertyGroup>
   <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <TargetVersion>Windows10</TargetVersion>
+    <TargetVersion>Windows7</TargetVersion>
     <UseDebugLibraries>True</UseDebugLibraries>
-    <CharacterSet>Unicode</CharacterSet>
+    <DriverTargetPlatform>Desktop</DriverTargetPlatform>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_CPP|Win32'" Label="Configuration">
-    <TargetVersion>Windows10</TargetVersion>
+    <TargetVersion>Windows7</TargetVersion>
     <UseDebugLibraries>True</UseDebugLibraries>
-    <CharacterSet>Unicode</CharacterSet>
+    <DriverTargetPlatform>Desktop</DriverTargetPlatform>
   </PropertyGroup>
   <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <TargetVersion>Windows10</TargetVersion>
+    <TargetVersion>Windows7</TargetVersion>
     <UseDebugLibraries>False</UseDebugLibraries>
-    <CharacterSet>Unicode</CharacterSet>
+    <DriverTargetPlatform>Desktop</DriverTargetPlatform>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_CPP|Win32'" Label="Configuration">
-    <TargetVersion>Windows10</TargetVersion>
+    <TargetVersion>Windows7</TargetVersion>
     <UseDebugLibraries>False</UseDebugLibraries>
-    <CharacterSet>Unicode</CharacterSet>
+    <DriverTargetPlatform>Desktop</DriverTargetPlatform>
   </PropertyGroup>
   <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <TargetVersion>Windows10</TargetVersion>
+    <TargetVersion>Windows7</TargetVersion>
     <UseDebugLibraries>True</UseDebugLibraries>
-    <CharacterSet>Unicode</CharacterSet>
+    <DriverTargetPlatform>Desktop</DriverTargetPlatform>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_CPP|x64'" Label="Configuration">
-    <TargetVersion>Windows10</TargetVersion>
+    <TargetVersion>Windows7</TargetVersion>
     <UseDebugLibraries>True</UseDebugLibraries>
-    <CharacterSet>Unicode</CharacterSet>
+    <DriverTargetPlatform>Desktop</DriverTargetPlatform>
   </PropertyGroup>
   <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <TargetVersion>Windows10</TargetVersion>
+    <TargetVersion>Windows7</TargetVersion>
     <UseDebugLibraries>False</UseDebugLibraries>
-    <CharacterSet>Unicode</CharacterSet>
+    <DriverTargetPlatform>Desktop</DriverTargetPlatform>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_CPP|x64'" Label="Configuration">
-    <TargetVersion>Windows10</TargetVersion>
+    <TargetVersion>Windows7</TargetVersion>
     <UseDebugLibraries>False</UseDebugLibraries>
-    <CharacterSet>Unicode</CharacterSet>
+    <DriverTargetPlatform>Desktop</DriverTargetPlatform>
   </PropertyGroup>
   <!-- Needed by any VcxProj -->
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
@@ -124,99 +128,84 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>$(ProjectDir)..\common\vJoyInterface;$(ProjectDir)..\..\inc;$(IncludePath)</IncludePath>
-    <ExecutablePath>$(VC_ExecutablePath_x86);$(WindowsSDK_ExecutablePath);$(VS_ExecutablePath);$(MSBuild_ExecutablePath);$(SystemRoot)\SysWow64;$(FxCopDir);$(PATH);$(LOCALAPPDATA)\Atlassian\SourceTree\git_local\bin</ExecutablePath>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_CPP|Win32'">
-    <IncludePath>$(WindowsSDK_IncludePath);$(VC_IncludePath)</IncludePath>
-    <ExecutablePath>$(VC_ExecutablePath_x86);$(WindowsSDK_ExecutablePath);$(VS_ExecutablePath);$(MSBuild_ExecutablePath);$(SystemRoot)\SysWow64;$(FxCopDir);$(PATH);$(LOCALAPPDATA)\Atlassian\SourceTree\git_local\bin</ExecutablePath>
-  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <ExecutablePath>$(VC_ExecutablePath_x86);$(WindowsSDK_ExecutablePath);$(VS_ExecutablePath);$(MSBuild_ExecutablePath);$(SystemRoot)\SysWow64;$(FxCopDir);$(PATH);$(LOCALAPPDATA)\Atlassian\SourceTree\git_local\bin</ExecutablePath>
-    <IncludePath>$(ProjectDir)..\common\vJoyInterface;$(ProjectDir)..\..\inc;$(IncludePath)</IncludePath>
+    <TimeStampServer>http://timestamp.verisign.com/scripts/timstamp.dll</TimeStampServer>
+    <IncludePath>$(KM_IncludePath);$(KMDF_INC_PATH)$(KMDF_VER_PATH);$(SolutionDir)Inc;$(IncludePath)</IncludePath>
+    <ExecutablePath>$(ExecutablePath);$(WDKContentRoot)bin\x86;$(WDKContentRoot)tools\tracing\x86;$(LOCALAPPDATA)\Atlassian\SourceTree\git_local\bin</ExecutablePath>
+    <Inf2CatUseLocalTime>true</Inf2CatUseLocalTime>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_CPP|Win32'">
-    <ExecutablePath>$(VC_ExecutablePath_x86);$(WindowsSDK_ExecutablePath);$(VS_ExecutablePath);$(MSBuild_ExecutablePath);$(SystemRoot)\SysWow64;$(FxCopDir);$(PATH);$(LOCALAPPDATA)\Atlassian\SourceTree\git_local\bin</ExecutablePath>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <ExecutablePath>$(VC_ExecutablePath_x64);$(WindowsSDK_ExecutablePath);$(VS_ExecutablePath);$(MSBuild_ExecutablePath);$(FxCopDir);$(PATH);$(LOCALAPPDATA)\Atlassian\SourceTree\git_local\bin</ExecutablePath>
-    <IncludePath>$(ProjectDir)..\common\vJoyInterface;$(ProjectDir)..\..\inc;$(IncludePath)</IncludePath>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_CPP|x64'">
-    <ExecutablePath>$(VC_ExecutablePath_x64);$(WindowsSDK_ExecutablePath);$(VS_ExecutablePath);$(MSBuild_ExecutablePath);$(FxCopDir);$(PATH);$(LOCALAPPDATA)\Atlassian\SourceTree\git_local\bin</ExecutablePath>
+    <TimeStampServer>http://timestamp.verisign.com/scripts/timstamp.dll</TimeStampServer>
+    <IncludePath>$(KM_IncludePath);$(KMDF_INC_PATH)$(KMDF_VER_PATH);$(SolutionDir)Inc;$(IncludePath)</IncludePath>
+    <ExecutablePath>$(ExecutablePath);$(WDKContentRoot)bin\x86;$(WDKContentRoot)tools\tracing\x86;$(LOCALAPPDATA)\Atlassian\SourceTree\git_local\bin</ExecutablePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <ExecutablePath>$(VC_ExecutablePath_x64);$(WindowsSDK_ExecutablePath);$(VS_ExecutablePath);$(MSBuild_ExecutablePath);$(FxCopDir);$(PATH);$(LOCALAPPDATA)\Atlassian\SourceTree\git_local\bin</ExecutablePath>
-    <IncludePath>$(ProjectDir)..\common\vJoyInterface;$(ProjectDir)..\..\inc;$(IncludePath)</IncludePath>
+    <TimeStampServer>http://timestamp.verisign.com/scripts/timstamp.dll</TimeStampServer>
+    <IncludePath>$(KM_IncludePath);$(KMDF_INC_PATH)$(KMDF_VER_PATH);$(SolutionDir)Inc;$(IncludePath)</IncludePath>
+    <ExecutablePath>$(ExecutablePath);$(WDKContentRoot)bin\x86;$(WDKContentRoot)tools\tracing\x64;$(LOCALAPPDATA)\Atlassian\SourceTree\git_local\bin</ExecutablePath>
+    <Inf2CatUseLocalTime>true</Inf2CatUseLocalTime>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_CPP|x64'">
-    <ExecutablePath>$(VC_ExecutablePath_x64);$(WindowsSDK_ExecutablePath);$(VS_ExecutablePath);$(MSBuild_ExecutablePath);$(FxCopDir);$(PATH);$(LOCALAPPDATA)\Atlassian\SourceTree\git_local\bin</ExecutablePath>
+    <TimeStampServer>http://timestamp.verisign.com/scripts/timstamp.dll</TimeStampServer>
+    <IncludePath>$(KM_IncludePath);$(KMDF_INC_PATH)$(KMDF_VER_PATH);$(SolutionDir)Inc;$(IncludePath)</IncludePath>
+    <ExecutablePath>$(ExecutablePath);$(WDKContentRoot)bin\x86;$(WDKContentRoot)tools\tracing\x64;$(LOCALAPPDATA)\Atlassian\SourceTree\git_local\bin</ExecutablePath>
   </PropertyGroup>
-  <!-- The WrappedTaskItems label is used by the conversion tool to identify the location where items 
-        associated with wrapped tasks will reside.-->
-  <ItemGroup Label="WrappedTaskItems">
-    <ProjectReference Include="..\common\vJoyInterface\vJoyInterface2012.vcxproj">
-      <Project>{9e1fc894-f587-4fba-8599-2f8c544e061a}</Project>
-    </ProjectReference>
-  </ItemGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>$(KM_IncludePath);$(KMDF_INC_PATH)$(KMDF_VER_PATH);$(SolutionDir)Inc;$(IncludePath)</IncludePath>
+    <ExecutablePath>$(ExecutablePath);$(WDKContentRoot)bin\x86;$(WDKContentRoot)tools\tracing\x86;$(LOCALAPPDATA)\Atlassian\SourceTree\git_local\bin</ExecutablePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_CPP|Win32'">
+    <IncludePath>$(KM_IncludePath);$(KMDF_INC_PATH)$(KMDF_VER_PATH);$(SolutionDir)Inc;$(IncludePath)</IncludePath>
+    <ExecutablePath>$(ExecutablePath);$(WDKContentRoot)bin\x86;$(WDKContentRoot)tools\tracing\x86;$(LOCALAPPDATA)\Atlassian\SourceTree\git_local\bin</ExecutablePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>$(KM_IncludePath);$(KMDF_INC_PATH)$(KMDF_VER_PATH);$(SolutionDir)Inc;$(IncludePath)</IncludePath>
+    <ExecutablePath>$(ExecutablePath);$(WDKContentRoot)bin\x86;$(WDKContentRoot)tools\tracing\x64;$(LOCALAPPDATA)\Atlassian\SourceTree\git_local\bin</ExecutablePath>
+    <EnableInf2cat>false</EnableInf2cat>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_CPP|x64'">
+    <IncludePath>$(KM_IncludePath);$(KMDF_INC_PATH)$(KMDF_VER_PATH);$(SolutionDir)Inc;$(IncludePath)</IncludePath>
+    <ExecutablePath>$(ExecutablePath);$(WDKContentRoot)bin\x86;$(WDKContentRoot)tools\tracing\x64;$(LOCALAPPDATA)\Atlassian\SourceTree\git_local\bin</ExecutablePath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <Link>
-      <AdditionalLibraryDirectories>$(OutDir)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>vJoyInterface.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-    </Link>
-    <PreBuildEvent />
     <PreBuildEvent />
     <PostBuildEvent />
+    <Link>
+      <AdditionalDependencies>%(AdditionalDependencies);$(DDK_LIB_PATH)\hidclass.lib</AdditionalDependencies>
+    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_CPP|Win32'">
-    <Link>
-      <AdditionalLibraryDirectories>$(OutDir)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>vJoyInterface.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-    </Link>
-    <PreBuildEvent />
     <PreBuildEvent />
     <PostBuildEvent />
+    <Link>
+      <AdditionalDependencies>%(AdditionalDependencies);$(DDK_LIB_PATH)\hidclass.lib</AdditionalDependencies>
+    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <Link>
-      <AdditionalLibraryDirectories>$(OutDir)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>vJoyInterface.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-    </Link>
-    <PreBuildEvent />
     <PreBuildEvent />
     <PostBuildEvent />
+    <Link>
+      <AdditionalDependencies>%(AdditionalDependencies);$(DDK_LIB_PATH)\hidclass.lib</AdditionalDependencies>
+    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_CPP|Win32'">
-    <Link>
-      <AdditionalLibraryDirectories>$(OutDir)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>vJoyInterface.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-    </Link>
-    <PreBuildEvent />
     <PreBuildEvent />
     <PostBuildEvent />
+    <Link>
+      <AdditionalDependencies>%(AdditionalDependencies);$(DDK_LIB_PATH)\hidclass.lib</AdditionalDependencies>
+    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <Link>
-      <AdditionalLibraryDirectories>$(OutDir)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>vJoyInterface.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-    </Link>
-    <PreBuildEvent />
     <PreBuildEvent />
     <PostBuildEvent />
-    <PreBuildEvent />
-    <PreBuildEvent />
+    <Link>
+      <AdditionalDependencies>%(AdditionalDependencies);$(DDK_LIB_PATH)\hidclass.lib</AdditionalDependencies>
+    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_CPP|x64'">
-    <Link>
-      <AdditionalLibraryDirectories>$(OutDir)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>vJoyInterface.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-    </Link>
     <PreBuildEvent>
       <Command>
       </Command>
-    </PreBuildEvent>
-    <PreBuildEvent>
       <Message>
       </Message>
     </PreBuildEvent>
@@ -226,37 +215,21 @@
       <Message>
       </Message>
     </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>%(AdditionalDependencies);$(DDK_LIB_PATH)\hidclass.lib</AdditionalDependencies>
+    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <PreBuildEvent />
+    <PostBuildEvent />
     <Link>
-      <AdditionalLibraryDirectories>$(OutDir)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>vJoyInterface.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>%(AdditionalDependencies);$(DDK_LIB_PATH)\hidclass.lib</AdditionalDependencies>
     </Link>
-    <PreBuildEvent>
-      <Command>
-      </Command>
-    </PreBuildEvent>
-    <PreBuildEvent>
-      <Message>
-      </Message>
-    </PreBuildEvent>
-    <PostBuildEvent>
-      <Command>
-      </Command>
-      <Message>
-      </Message>
-    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_CPP|x64'">
-    <Link>
-      <AdditionalLibraryDirectories>$(OutDir)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>vJoyInterface.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-    </Link>
     <PreBuildEvent>
       <Command>
       </Command>
-    </PreBuildEvent>
-    <PreBuildEvent>
       <Message>
       </Message>
     </PreBuildEvent>
@@ -266,17 +239,23 @@
       <Message>
       </Message>
     </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>%(AdditionalDependencies);$(DDK_LIB_PATH)\hidclass.lib</AdditionalDependencies>
+    </Link>
   </ItemDefinitionGroup>
+  <!-- The WrappedTaskItems label is used by the conversion tool to identify the location where items 
+        associated with wrapped tasks will reside.-->
+  <ItemGroup Label="WrappedTaskItems" />
   <ItemGroup>
     <!-- We only add items (e.g. form ClSourceFiles) that do not already exist (e.g in the ClCompile list), this avoids duplication -->
     <ClCompile Include="@(ClSourceFiles)" Exclude="@(ClCompile)" />
-    <ClCompile Include="FfbMon.cpp" />
-    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="hidkmdf.c" />
     <ResourceCompile Include="@(RcSourceFiles)" Exclude="@(ResourceCompile)" />
     <Midl Include="@(IdlSourceFiles)" Exclude="@(Midl)" />
     <MessageCompile Include="@(McSourceFiles)" Exclude="@(MessageCompile)" />
     <MASM Include="@(AsmSourceFiles)" Exclude="@(MASM)" />
     <GenerateBmf Include="@(MofSourceFiles)" Exclude="@(GenerateBmf)" />
+    <ResourceCompile Include="hidkmdf.rc" />
   </ItemGroup>
   <!-- Set default environment variables, e.g. for stampinf -->
   <ItemGroup>
@@ -295,13 +274,10 @@
   <ItemGroup>
     <None Exclude="@(None)" Include="*.txt;*.htm;*.html" />
     <None Exclude="@(None)" Include="*.ico;*.cur;*.bmp;*.dlg;*.rct;*.gif;*.jpg;*.jpeg;*.wav;*.jpe;*.tiff;*.tif;*.png;*.rc2" />
-    <None Include="bldFfbMon.bat" />
+    <None Exclude="@(None)" Include="*.def;*.bat;*.hpj;*.asmx" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="FfbMon.h" />
-    <ClInclude Include="gen-versioninfo.h" />
-    <ClInclude Include="stdafx.h" />
-    <ClInclude Include="targetver.h" />
+    <ClInclude Exclude="@(ClInclude)" Include="*.h;*.hpp;*.hxx;*.hm;*.inl;*.xsd" />
   </ItemGroup>
   <!-- /Necessary to pick up proper files from local directory when in the IDE-->
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
