@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29806.167
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 12.0
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FfbMon", "FfbMon", "{6FD535C1-9D8A-4AD2-835E-FA6BF948B424}"
 EndProject
@@ -912,8 +912,8 @@ Global
 		{9E1FC894-F587-4FBA-8599-2F8C544E061A}.Debug|Any CPU.ActiveCfg = Debug|Win32
 		{9E1FC894-F587-4FBA-8599-2F8C544E061A}.Debug|ARM.ActiveCfg = Debug|Win32
 		{9E1FC894-F587-4FBA-8599-2F8C544E061A}.Debug|ARM64.ActiveCfg = Debug|Win32
-		{9E1FC894-F587-4FBA-8599-2F8C544E061A}.Debug|Win32.ActiveCfg = Debug|Win32
-		{9E1FC894-F587-4FBA-8599-2F8C544E061A}.Debug|Win32.Build.0 = Debug|Win32
+		{9E1FC894-F587-4FBA-8599-2F8C544E061A}.Debug|Win32.ActiveCfg = Win7 Debug|Win32
+		{9E1FC894-F587-4FBA-8599-2F8C544E061A}.Debug|Win32.Build.0 = Win7 Debug|Win32
 		{9E1FC894-F587-4FBA-8599-2F8C544E061A}.Debug|x64.ActiveCfg = Debug|x64
 		{9E1FC894-F587-4FBA-8599-2F8C544E061A}.Debug|x64.Build.0 = Debug|x64
 		{9E1FC894-F587-4FBA-8599-2F8C544E061A}.Profile|Any CPU.ActiveCfg = Vista Debug|x64
